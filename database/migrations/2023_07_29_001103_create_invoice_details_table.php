@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ciudad', function (Blueprint $table) {
+        Schema::create('invoice_details', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 30);
-           
-
-            $table->bigInteger('departamento_id')->unsigned();
-
-            $table->foreign('departamento_id')->references('id')->on('departamentos')->onDelete('cascade');
-            
+            $table->integer('cantidad'); // Utiliza 'integer' o 'unsignedBigInteger' según tus necesidades.
+            $table->foreignId('bill_id')->constrained('bills')->onDelete('cascade');
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ciudad');
+        Schema::dropIfExists('invoice_details');
     }
 };

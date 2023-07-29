@@ -49,7 +49,7 @@ class CustomAuthController extends Controller
         $user = $this->create($data);
 
         Auth::login($user);
-        return redirect("dashboard")->withSuccess('Te has registrado satisfactoriamnete');
+        return redirect("dashboard")->withSuccess('Te has registrado satisfactoriamente!');
     }
 
     public function create(array $data)
