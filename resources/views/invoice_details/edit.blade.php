@@ -1,4 +1,4 @@
-@extends('app')
+@extends('dashboard')
 
 @section('content')
 
@@ -22,7 +22,7 @@
                         @csrf
                         <div class="mb-3">
                             <label for="cantidad" class="form-label">Cantidad</label>
-                            <input type="number" name="cantidad" id="cantidad" class="form-control" placeholder="Enter cantidad" value="{{ $yyyy->cantidad }}">
+                            <input type="number" name="cantidad" id="cantidad" class="form-control" placeholder="Enter cantidad" value="{{ $invoice_detail->cantidad }}">
                             @error('cantidad')
                                 <div class="text-danger">{{ $message}}</div>
                             @enderror
